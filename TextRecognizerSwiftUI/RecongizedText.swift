@@ -5,13 +5,13 @@
 import Combine
 import SwiftUI
 
-final class RecognizedText: BindableObject {
+final class RecognizedText: ObservableObject, Identifiable {
     
-    let didChange = PassthroughSubject<RecognizedText, Never>()
+    let willChange = PassthroughSubject<RecognizedText, Never>()
     
     var value: String = "Scan document to see its contents" {
-        didSet {
-            didChange.send(self)
+        willSet {
+            willChange.send(self)
         }
     }
     

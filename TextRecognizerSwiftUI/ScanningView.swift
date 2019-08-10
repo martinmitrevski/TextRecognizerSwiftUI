@@ -29,11 +29,11 @@ struct ScanningView: UIViewControllerRepresentable {
     
     class Coordinator: NSObject, VNDocumentCameraViewControllerDelegate {
         
-        @Binding var recognizedText: String
+        var recognizedText: Binding<String>
         private let textRecognizer: TextRecognizer
         
         init(recognizedText: Binding<String>) {
-            self.$recognizedText = recognizedText
+            self.recognizedText = recognizedText
             textRecognizer = TextRecognizer(recognizedText: recognizedText)
         }
                 

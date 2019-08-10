@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ContentView : View {
     
-    @ObjectBinding var recognizedText: RecognizedText = RecognizedText()
+    @ObservedObject var recognizedText: RecognizedText = RecognizedText()
     
     var body: some View {
         NavigationView {
@@ -18,7 +18,7 @@ struct ContentView : View {
                 Text(recognizedText.value)
                 .lineLimit(nil)
                 Spacer()
-                NavigationButton(destination: ScanningView(recognizedText: $recognizedText.value)) {
+                NavigationLink(destination: ScanningView(recognizedText: $recognizedText.value)) {
                     Text("Scan document")
                 }
             }
